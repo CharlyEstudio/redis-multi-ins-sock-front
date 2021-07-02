@@ -1,0 +1,28 @@
+<div class="row room vh-100">
+  <div class="col-4 room__sends">
+    <div class="room__sends__head">
+      <img src="https://lh3.googleusercontent.com/fife/AAWUweUDsskGLbzwnqoD0TO8q2uSgdR_E8KgaIiPipAOeppw5gwWar6XbhWhebMuw_Q-x2NiyzYb8U0i_d_rvK3gA5aaNsmqL1zdbRlJclgba6BeZ8H-az0cttC06uXdxZlLipZHF7XgG9y0iU0fWgej5iLruLy9s_B2YuGcGP_UtZlJDix99hz5jhmfNZ8Ishn2ZxlxGmq1eIn1g0K5PicNqdO7cc2FpBNrambh4ZQ_OTvVXE3a5DRZUA2ml5_baJVw4f5-WwBcIxKz53rk0JjGorRNEA8Iqv_VgVg7AtdTRpF8qdD9PbQRVQMcyD87hE4cM7Th7YWDO5fF7_LJW4uV1jLoxn4dSslA001Xqc3Dv5yVtiZUOnEW8moRJjSMXHaUB1xdK8CdtnfG7D8sxsR_6Bkw4WEn5kfSqEfKvFk68tJVBejowr-X_ivvjQI6sU0aLUNJAc04V3wyQfml8g74sKqxwWha07UoH1wLbEFNw1WO44-hbTgyD2fvwq7zx-ZX3F-WL-3fztVJoR-AaXZjUFaQ2SasLAR813VNzKV5kvrxbLp5UjJ8XYv-FeiH7TlKe0b5ZFUEZrVzrIheOT6y98fiEXBWkPAsBeVL-W6rItziL2phcvtyhxEQKpBlRiatWFWJ5TpsWJMlO7jhoC5_0OuK2a0fsmXHDZi6xhswxHoaEapDJZLBBPa7oYgssl15ImmgE-_Ar7UgcW4fYxn1vRpnu45ycdlYzZRuKAExnxxlvg=s32-c" alt="" />
+    </div>
+    <div class="room__sends__send">
+      <form [formGroup]="formMessage" (ngSubmit)="send()">
+        <div class="mb-3">
+          <label for="messageText" class="form-label">Mensaje</label>
+          <textarea class="form-control" formControlName="message" id="messageText"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send</button>
+      </form>
+    </div>
+  </div>
+  <div class="col-8 room__chat center-flex" *ngIf="messages.length === 0">
+    <img src="../assets/svg/fondo-chat.svg" alt="WaSaaat" />
+    <div class="room__chat__text">
+      <h3>Deja tu móvil conectado</h3>
+      <p>WaSaaat se conecta a tu móvil para sincronizar los avisos. Para reducir el consumo de tus datos de 30 pesos, conecta tu móvil a un WaiFai.</p>
+    </div>
+  </div>
+  <div class="col-8 room__chat-text center-flex" *ngIf="messages.length > 0">
+    <ul class="list-group list-group-flush" id="chatBox">
+      <li class="" *ngFor="let m of messages">{{m}}</li>
+    </ul>
+  </div>
+</div>
